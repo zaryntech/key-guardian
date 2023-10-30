@@ -1,2 +1,9 @@
-# key-guardian
-Secure Crypto Address Generator based on SHA3 &amp; Blake2. 
+key_guardian
+=====
+
+An OTP application
+
+Build
+-----
+
+    $ rebar3 compile
