@@ -13,3 +13,4 @@ Run
 
     $ rebar3 shell
     $ key_guardian:gen_address(50).
+    "24033191147962694158123238212173275893615415918119"
