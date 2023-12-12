@@ -3,6 +3,7 @@
 -export([generate/1, ecdh_named_curve/0, ecdh_edwards_curve_dh/0, eddsa_edwards_curve_ed/0,
 srp_comp/0, list_ec_curves/0]).
 
+%% Start generating keys using different crypto algorithms 
 generate(N) ->
     Data = srp_comp(),
     StringData = binary_to_list(Data),
@@ -24,13 +25,16 @@ pad_or_truncate(String, Length) ->
     String.
 
 ecdh_named_curve() ->
-    {PublicKey, PrivKeyOut} = crypto:generate_key(ecdh, brainpoolP512t1).
+    {PublicKey, PrivKeyOut} = crypto:generate_key(ecdh, brainpoolP512t1),
+    {PublicKey, PrivKeyOut}.
 
 ecdh_edwards_curve_dh() ->
-    {PublicKey, PrivKeyOut} = crypto:generate_key(ecdh, x25519).
+    {PublicKey, PrivKeyOut} = crypto:generate_key(ecdh, x25519),
+    {PublicKey, PrivKeyOut}.
 
 eddsa_edwards_curve_ed() ->
-    {PublicKey, PrivKeyOut} = crypto:generate_key(eddsa, ed25519).
+    {PublicKey, PrivKeyOut} = crypto:generate_key(eddsa, ed25519),
+    {PublicKey, PrivKeyOut}.
 
 srp_comp() ->
     RandAtom = rand_atom:generate(),
